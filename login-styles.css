@@ -1,0 +1,16 @@
+body {
+    display: flex; /* Makes the body element a flex container */
+    align-items: center; /* Center items along the cross-axis (i.e. will center flex item or items vertically when flex-direction is set to row) */
+    justify-content: center; /* Center items along the main-axis (i.e. will center flex item or items horizontally when flex-direction is set to row */ 
+
+    margin: 0; /* Gets rid of the default margin from the body element */
+    min-height: 100vh; /* Sets the height of the body element to be at least as tall as the viewport height */
+
+    background-color: gray;
+}
+
+.login-box {
+    border: 5px solid red;
+    width: 100px;
+    height: 100px;
+}
