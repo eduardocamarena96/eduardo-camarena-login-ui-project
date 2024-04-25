@@ -1,16 +1,69 @@
 body {
     display: flex; /* Makes the body element a flex container */
+    justify-content: center; /* Center items along the main-axis (i.e. will center flex item or items horizontally when flex-direction is set to row */
     align-items: center; /* Center items along the cross-axis (i.e. will center flex item or items vertically when flex-direction is set to row) */
-    justify-content: center; /* Center items along the main-axis (i.e. will center flex item or items horizontally when flex-direction is set to row */ 
-
+     
+    min-height: 100vh; /* Sets the height of the body element to be at least as tall as the viewport height */;
+    padding: 0 24px;
     margin: 0; /* Gets rid of the default margin from the body element */
-    min-height: 100vh; /* Sets the height of the body element to be at least as tall as the viewport height */
 
-    background-color: gray;
+    background-color: white;
+    font-family: 'Roboto', Arial; 
 }
 
+/* Buttons and form elements do not inherit font settings from parent by default */
+input, button {
+    font-family: inherit
+}
+
+
 .login-box {
-    border: 5px solid red;
-    width: 100px;
-    height: 100px;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 300px;
+    max-width: 650px;
+    height: 400px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+   
+}
+
+.sign-in-text {
+    margin-top: 50px;
+    margin-bottom: 0;
+
+    font-weight: 400; 
+    font-size: 48px;
+}
+
+.username, .password, .sign-in-button {
+    width: 50%;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.username, .password {
+    border: none;
+    border-bottom: 2px solid gray;
+
+    margin-top: 50px;
+}
+
+.sign-in-button {
+    height: 40px;
+    margin-top: 40px;
+
+    border: none;
+    border-radius: 20px;
+
+    color: white;
+    background-color: hsl(214, 86%, 60%);
+}
+
+.sign-in-button:hover { 
+    cursor: pointer;
 }
