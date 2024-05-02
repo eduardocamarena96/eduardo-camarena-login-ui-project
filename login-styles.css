@@ -1,14 +1,32 @@
 body {
-    display: flex; /* Makes the body element a flex container */
-    justify-content: center; /* Center items along the main-axis (i.e. will center flex item or items horizontally when flex-direction is set to row */
-    align-items: center; /* Center items along the cross-axis (i.e. will center flex item or items vertically when flex-direction is set to row) */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
      
-    min-height: 100vh; /* Sets the height of the body element to be at least as tall as the viewport height */;
+    min-height: 100vh; 
     padding: 0 24px;
-    margin: 0; /* Gets rid of the default margin from the body element */
+    margin: 0; 
+    
+    background: linear-gradient(to right, #45a247, #283c86);
+    font-family: 'Roboto', Arial;
 
-    background-color: white;
-    font-family: 'Roboto', Arial; 
+    /* Stretch the background to be 130% of its original width and 130% of its original height. */
+    background-size: 130% 130%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    /* Background goes from center left, to center right, back to center left */
+    /* https://dev.to/this-is-learning/all-you-need-to-know-about-background-position-3aac#percentage-values */
+	0% {
+		background-position: 0% 50%; /* Center Left */
+	}
+	50% {
+		background-position: 100% 50%; /* Center Right */
+	}
+	100% {
+		background-position: 0% 50%; /* Center Left */
+	}
 }
 
 /* Buttons and form elements do not inherit font settings from parent by default */
@@ -16,6 +34,19 @@ input, button {
     font-family: inherit
 }
 
+input {
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
+
+input::placeholder {
+    color: hsla(0, 0%, 100%, 0.7);
+}
+
+input:focus::placeholder {
+    color: transparent;
+  }
 
 .login-box {
     flex-grow: 1;
@@ -27,9 +58,9 @@ input, button {
     min-width: 300px;
     max-width: 650px;
     height: 400px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
-    border-radius: 12px;
    
+    box-shadow: 0px 0px 20px 10px white;
+    border-radius: 12px;
 }
 
 .sign-in-text {
@@ -38,19 +69,21 @@ input, button {
 
     font-weight: 400; 
     font-size: 48px;
+
+    color: white;
+}
+
+.username, .password {
+    margin-top: 50px;
+
+    border: none;
+    border-bottom: 2px solid white;
 }
 
 .username, .password, .sign-in-button {
     width: 50%;
     min-width: 150px;
     max-width: 200px;
-}
-
-.username, .password {
-    border: none;
-    border-bottom: 2px solid gray;
-
-    margin-top: 50px;
 }
 
 .sign-in-button {
@@ -60,10 +93,18 @@ input, button {
     border: none;
     border-radius: 20px;
 
-    color: white;
-    background-color: hsl(214, 86%, 60%);
+    background-color: hsl(0, 0%, 100%); 
+    mix-blend-mode: screen;
 }
 
 .sign-in-button:hover { 
+    box-shadow: inset 0 0 10px 0 white, 
+                0 0 20px 2px white;
+
+    text-shadow: 0 0 10px hsl(121, 40%, 80%);
     cursor: pointer;
+}
+
+.sign-in-button:active {
+    transform: scale(1.1);
 }
